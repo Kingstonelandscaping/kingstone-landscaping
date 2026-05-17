@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <BrandLogo size="md" className="rounded-lg" />
+              <BrandLogo size="md" />
               <h3 className="font-serif font-bold text-lg text-gold-gradient">{COMPANY.name}</h3>
             </div>
             <p className="text-muted text-sm mb-4">

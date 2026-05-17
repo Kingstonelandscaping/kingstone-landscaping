@@ -6,7 +6,7 @@ export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
 
 export default async function Icon() {
-  const logoPath = join(process.cwd(), 'public/images/brand/logo.png');
+  const logoPath = join(process.cwd(), 'public/images/brand/kingstone-logo.png');
   const logoData = await readFile(logoPath);
   const base64 = `data:image/png;base64,${logoData.toString('base64')}`;
 
@@ -24,7 +24,6 @@ export default async function Icon() {
           overflow: 'hidden',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={base64}
           alt=""

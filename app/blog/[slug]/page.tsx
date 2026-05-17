@@ -2,9 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPostSlugs } from '@/content/blog/posts';
+import ArticlePromoAd from '@/components/blog/ArticlePromoAd';
 import BookLink from '@/components/BookLink';
 import { COMPANY } from '@/lib/constants';
-import { generateBlogPostSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import {
+  generateBlogPostSchema,
+  generateBreadcrumbSchema,
+  sharedOpenGraphImages,
+} from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -18,11 +23,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+
+  const canonical = `${COMPANY.url}/blog/${post.slug}`;
+
   return {
     title: post.metaTitle,
     description: post.metaDescription,
     authors: [{ name: post.author }],
-    alternates: { canonical: `${COMPANY.url}/blog/${post.slug}` },
+    alternates: { canonical },
+    openGraph: {
+      title: post.metaTitle,
+      description: post.metaDescription,
+      url: canonical,
+      type: 'article',
+      publishedTime: post.publishedDate,
+      authors: [post.author],
+      images: sharedOpenGraphImages(),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metaTitle,
+      description: post.metaDescription,
+      images: sharedOpenGraphImages().map((img) => img.url),
+    },
   };
 }
 
@@ -49,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <section className="bg-gradient-to-br from-bg to-charcoal text-white py-16 md:py-20">
         <div className="container-custom max-w-3xl">
-          <p className="text-gold text-sm mb-2">
+          <p className="text-muted text-sm mb-2">
             {post.readTime} read • {post.publishedDate}
           </p>
           <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">{post.title}</h1>
@@ -59,12 +82,14 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article className="section-padding">
         <div className="container-custom max-w-3xl prose-blog">
+          <ArticlePromoAd variant={post.adVariant} className="mb-10" />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          <div className="mt-12 p-6 bg-charcoal rounded-lg">
+          <ArticlePromoAd variant={post.adVariant} className="mt-10" />
+          <div className="mt-12 p-6 bg-charcoal rounded-sm border border-gold/20">
             <h2 className="text-xl font-serif font-bold text-gold mb-2">
               Need Professional Help?
             </h2>
-            <p className="text-muted mb-4">
+            <p className="text-muted mb-4 font-sans">
               Kingstone Landscaping, formerly Lawn Pups, serves Gainesville, Cumming, Alpharetta,
               and surrounding Georgia areas.
             </p>
@@ -77,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
           <Link
             href="/blog"
-            className="inline-block mt-8 text-gold font-semibold hover:underline"
+            className="inline-block mt-8 text-gold font-semibold hover:underline font-sans"
           >
             ← Back to all articles
           </Link>

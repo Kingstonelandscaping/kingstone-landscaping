@@ -1,16 +1,14 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MessageSquare } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 import BookLink from '@/components/BookLink';
 import StoneBackground from '@/components/brand/StoneBackground';
 import ShardBurst from '@/components/brand/ShardBurst';
 import GoldDivider from '@/components/brand/GoldDivider';
 import { COMPANY, PHONE_SMS_HREF, PHONE_TEL_HREF } from '@/lib/constants';
-
-const LOGO_CREST = '/images/brand/logo-crest.png';
 
 export default function HomeHero() {
   const reduceMotion = useReducedMotion();
@@ -48,17 +46,10 @@ export default function HomeHero() {
               initial={reduceMotion ? {} : { scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64"
+              className="relative"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/20 to-transparent blur-2xl" />
-              <Image
-                src={LOGO_CREST}
-                alt="Kingstone Landscaping crest logo"
-                fill
-                className="object-contain drop-shadow-2xl"
-                priority
-                sizes="(max-width: 768px) 160px, 256px"
-              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/20 to-transparent blur-2xl scale-150 pointer-events-none" />
+              <BrandLogo size="hero" priority className="relative z-10 ring-4 ring-gold/40" />
             </motion.div>
           </motion.div>
 

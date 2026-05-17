@@ -95,31 +95,46 @@ h3 {
   }
 }
 
-/* Gold gradient buttons */
+/* Gold gradient buttons — black text on gold (never gold-on-gold) */
 .btn-primary,
-.btn-book {
+.btn-book,
+a.btn-primary,
+a.btn-book {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-  color: #0a0a0a;
+  color: #000000;
+  text-decoration: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.125rem;
   font-weight: 700;
-  border: 1px solid rgba(232, 197, 71, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 .btn-primary:hover,
-.btn-book:hover {
+.btn-primary:focus-visible,
+.btn-book:hover,
+.btn-book:focus-visible,
+a.btn-primary:hover,
+a.btn-primary:focus-visible,
+a.btn-book:hover,
+a.btn-book:focus-visible {
+  color: #000000;
+  text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45);
-  filter: brightness(1.08);
+  filter: brightness(1.06);
 }
 
 .btn-primary:active,
-.btn-book:active {
+.btn-book:active,
+a.btn-primary:active,
+a.btn-book:active {
+  color: #000000;
+  text-decoration: none;
   transform: translateY(0);
   box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
 }
@@ -131,7 +146,7 @@ h3 {
   background-color: var(--color-navy);
   color: var(--color-foreground);
   padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.125rem;
   font-weight: 600;
   border: 1px solid rgba(27, 42, 74, 0.8);
   transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -150,7 +165,7 @@ h3 {
   background-color: var(--color-navy);
   color: var(--color-foreground);
   padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.125rem;
   font-weight: 600;
   border: 1px solid rgba(201, 162, 39, 0.25);
   transition: all 0.2s;
@@ -170,15 +185,16 @@ h3 {
   border: 2px solid var(--color-gold);
   color: var(--color-gold);
   padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0.125rem;
   font-weight: 600;
   background: transparent;
   transition: all 0.2s;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:focus-visible {
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-  color: #0a0a0a;
+  color: #000000;
   border-color: transparent;
 }
 
@@ -563,12 +579,12 @@ img {
   height: auto;
 }
 
-a {
+a:not(.btn-book):not(.btn-primary):not(.btn-secondary):not(.btn-services):not(.btn-outline) {
   color: var(--color-gold);
   transition: color 0.2s;
 }
 
-a:hover {
+a:not(.btn-book):not(.btn-primary):not(.btn-secondary):not(.btn-services):not(.btn-outline):hover {
   color: var(--color-gold-light);
 }
 
@@ -650,9 +666,29 @@ a:hover {
   color: var(--color-muted);
 }
 
-.prose-blog a {
+.prose-blog a:not(.btn-book):not(.btn-primary):not(.btn-secondary):not(.btn-services):not(.btn-outline) {
   text-decoration: underline;
   color: var(--color-gold);
+}
+
+.prose-blog a.btn-book,
+.prose-blog a.btn-primary,
+.prose-blog .btn-book {
+  color: #000000;
+  text-decoration: none;
+}
+
+.prose-blog a.btn-book:hover,
+.prose-blog a.btn-book:focus-visible,
+.prose-blog a.btn-book:active,
+.prose-blog a.btn-primary:hover,
+.prose-blog a.btn-primary:focus-visible,
+.prose-blog a.btn-primary:active,
+.prose-blog .btn-book:hover,
+.prose-blog .btn-book:focus-visible,
+.prose-blog .btn-book:active {
+  color: #000000;
+  text-decoration: none;
 }
 
 .calendly-wrap {

@@ -1,10 +1,11 @@
 'use client';
 
 import { useCallback, type MouseEvent, type ReactNode } from 'react';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { BOOK_CTA } from '@/lib/constants';
+import { BOOK_CTA, CALENDLY_URL } from '@/lib/constants';
 
-const CALENDLY_PAGES = ['/', '/contact'];
+const CALENDLY_SCROLL_PAGES = ['/', '/contact'];
 
 function scrollToCalendly(): boolean {
   const el = document.getElementById('calendly');
@@ -28,11 +29,16 @@ export default function BookLink({ className, children = BOOK_CTA }: BookLinkPro
   const pathname = usePathname();
   const router = useRouter();
 
+  const useDirectCalendly =
+    pathname.startsWith('/blog') || !CALENDLY_SCROLL_PAGES.includes(pathname);
+
   const handleClick = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
+      if (useDirectCalendly) return;
+
       e.preventDefault();
 
-      if (CALENDLY_PAGES.includes(pathname)) {
+      if (CALENDLY_SCROLL_PAGES.includes(pathname)) {
         if (!scrollToCalendly()) retryScrollToCalendly();
         return;
       }
@@ -40,12 +46,25 @@ export default function BookLink({ className, children = BOOK_CTA }: BookLinkPro
       router.push('/#calendly');
       retryScrollToCalendly(30, 150);
     },
-    [pathname, router],
+    [pathname, router, useDirectCalendly],
   );
 
+  if (useDirectCalendly) {
+    return (
+      <a
+        href={CALENDLY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <a href="/#calendly" className={className} onClick={handleClick}>
+    <Link href="/#calendly" className={className} onClick={handleClick}>
       {children}
-    </a>
+    </Link>
   );
 }

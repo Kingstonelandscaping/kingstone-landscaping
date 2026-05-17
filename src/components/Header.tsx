@@ -30,7 +30,7 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 sm:flex-initial group overflow-hidden"
         >
-          <BrandLogo size="sm" priority className="shrink-0 rounded-lg" />
+          <BrandLogo size="sm" priority className="shrink-0" />
           <span className="min-w-0 leading-tight truncate flex flex-col">
             <span className="brand-wordmark-kingstone text-sm sm:text-base md:text-lg">
               Kingstone

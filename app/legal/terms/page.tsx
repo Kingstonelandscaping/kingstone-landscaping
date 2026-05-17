@@ -20,7 +20,7 @@ export default function TermsPage() {
         <div className="prose prose-lg max-w-none">
           <h2 className="text-2xl font-serif font-bold text-gold mt-8 mb-4">1. Agreement</h2>
           <p className="text-muted mb-6">
-            By using {COMPANY.name}'s services, you agree to these Terms of Service. If you do not agree, please do not use our services.
+            By using {COMPANY.name}&apos;s services, you agree to these Terms of Service. If you do not agree, please do not use our services.
           </p>
 
           <h2 className="text-2xl font-serif font-bold text-gold mt-8 mb-4">2. Service Description</h2>

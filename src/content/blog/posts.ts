@@ -1,3 +1,6 @@
+import type { ArticleAdVariant } from '@/components/blog/ArticlePromoAd';
+import { CALENDLY_URL } from '@/lib/constants';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -9,6 +12,7 @@ export interface BlogPost {
   readTime: string;
   keyword: string;
   content: string;
+  adVariant: ArticleAdVariant;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -20,10 +24,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'Kingstone Landscaping was formerly Lawn Pups. Same Georgia team, elevated brand. Learn why we rebranded and what it means for your lawn care.',
     excerpt:
       'Learn about our exciting rebrand from Lawn Pups to Kingstone Landscaping and what it means for our customers.',
-    publishedDate: '2026-05-01',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '5 min',
     keyword: 'Lawn Pups Kingstone Landscaping Georgia',
+    adVariant: 'transformation',
     content: `
 <p>If you have searched for <strong>Lawn Pups</strong> lately, you may have noticed something new: <strong>Kingstone Landscaping</strong>. We want to be completely transparent — <em>Kingstone Landscaping is the same company as Lawn Pups</em>. This is a name change and brand evolution, not a new business. The team behind Lawn Pups has rebranded to Kingstone Landscaping with the same Georgia experts and the same commitment to quality outdoor care.</p>
 
@@ -53,7 +58,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Our Promise Moving Forward</h2>
 <p>Kingstone Landscaping carries forward every value Lawn Pups stood for: locally operated reliability, clear communication, consistent scheduling, long-term customer relationships, and no hidden fees. We are proud of where we came from and excited about where we are going.</p>
 
-<p>Ready to work with the team you trust under our new name? <a href="/contact">Contact Kingstone Landscaping</a> for a free estimate or book online through our Calendly scheduler. Kingstone Landscaping, formerly Lawn Pups — same Georgia experts, new name.</p>
+<p>Ready to work with the team you trust under our new name? <a href="${CALENDLY_URL}" target="_blank" rel="noopener noreferrer">Book a free estimate online</a> or <a href="/contact">contact Kingstone Landscaping</a>. Kingstone Landscaping, formerly Lawn Pups — same Georgia experts, new name.</p>
 `,
   },
   {
@@ -64,10 +69,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'Complete Georgia lawn care schedule for every month. Expert tips from Kingstone Landscaping for Atlanta, Gainesville, and North Georgia lawns.',
     excerpt:
       'Complete seasonal guide for maintaining a healthy lawn in Georgia throughout the year.',
-    publishedDate: '2026-04-15',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '8 min',
     keyword: 'Georgia lawn care schedule',
+    adVariant: 'premium',
     content: `
 <p>A proper <strong>Georgia lawn care schedule</strong> is the difference between a patchy yard and a thick, green lawn that survives heat, humidity, and occasional drought. Georgia's climate — warm-season grasses, long growing seasons, and unpredictable spring rains — requires a month-by-month plan. Kingstone Landscaping, formerly Lawn Pups, has maintained lawns across Atlanta, Gainesville, and Cumming for years. Here is our complete guide.</p>
 
@@ -107,10 +113,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'Discover 5 hardscaping ideas for Atlanta homes — patios, walkways, fire pits & more. Kingstone Landscaping serves Georgia with expert installation.',
     excerpt:
       'Discover hardscaping designs that boost curb appeal and property value in Atlanta.',
-    publishedDate: '2026-04-01',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '7 min',
     keyword: 'hardscaping Atlanta',
+    adVariant: 'services',
     content: `
 <p><strong>Hardscaping Atlanta</strong> homeowners love combines function, beauty, and return on investment. Unlike plants that need seasonal care, well-built stone, pavers, and retaining walls add permanent structure to your outdoor living space. Kingstone Landscaping designs and installs hardscaping across the Atlanta metro and North Georgia. Here are five projects our clients request most.</p>
 
@@ -146,10 +153,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'Prepare your Georgia lawn for summer heat and drought. Expert summer lawn care tips from Kingstone Landscaping, Atlanta & North Georgia.',
     excerpt:
       'Essential tips to protect your lawn from Georgia\'s intense summer weather.',
-    publishedDate: '2026-03-20',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '6 min',
     keyword: 'summer lawn care Georgia',
+    adVariant: 'premium',
     content: `
 <p><strong>Summer lawn care in Georgia</strong> is about survival first, aesthetics second. When temperatures exceed 90°F and weeks pass without rain, even healthy Bermuda and Zoysia lawns can thin, brown, or enter dormancy. Kingstone Landscaping helps homeowners from Gainesville to Alpharetta protect their investment. Here is how to prepare before the worst heat arrives.</p>
 
@@ -183,10 +191,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'Best native Georgia plants for low-maintenance landscaping. Expert plant picks from Kingstone Landscaping for Atlanta and North Georgia yards.',
     excerpt:
       'Transform your landscape with beautiful, drought-tolerant native Georgia plants.',
-    publishedDate: '2026-03-05',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '7 min',
     keyword: 'native Georgia plants landscaping',
+    adVariant: 'services',
     content: `
 <p>Choosing <strong>native Georgia plants for landscaping</strong> reduces water bills, supports pollinators, and survives local weather better than exotic imports. Kingstone Landscaping incorporates natives into designs across Atlanta, Cumming, and Gainesville. Here are top picks for low-maintenance curb appeal.</p>
 
@@ -220,10 +229,11 @@ export const BLOG_POSTS: BlogPost[] = [
       'When and how long to water your lawn in Georgia. Irrigation 101 from Kingstone Landscaping — timing, frequency, and system tips for Atlanta area lawns.',
     excerpt:
       'Master lawn irrigation timing and techniques optimized for Georgia\'s climate.',
-    publishedDate: '2026-02-18',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping',
     readTime: '6 min',
     keyword: 'lawn irrigation Georgia',
+    adVariant: 'premium',
     content: `
 <p>Correct <strong>lawn irrigation in Georgia</strong> saves money, prevents disease, and keeps turf greener through summer. Too many homeowners water daily at dusk — the worst combination for fungus and shallow roots. Kingstone Landscaping installs and repairs systems across North Georgia. Here is Irrigation 101 for Atlanta-area lawns.</p>
 

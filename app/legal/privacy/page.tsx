@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <div className="prose prose-lg max-w-none">
           <h2 className="text-2xl font-serif font-bold text-gold mt-8 mb-4">Introduction</h2>
           <p className="text-muted mb-6">
-            {COMPANY.name} (formerly {COMPANY.formerName}) ("we", "us", "our", or "Company") operates the website and services. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our services.
+            {COMPANY.name} (formerly {COMPANY.formerName}) (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;, or &ldquo;Company&rdquo;) operates the website and services. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our services.
           </p>
 
           <h2 className="text-2xl font-serif font-bold text-gold mt-8 mb-4">Information Collection and Use</h2>

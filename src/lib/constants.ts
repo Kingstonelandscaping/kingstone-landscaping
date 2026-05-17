@@ -76,15 +76,15 @@ export const CALENDLY_URL =
 export const BOOK_HREF = '/#calendly';
 export const BOOK_CTA = 'Book Free Estimate';
 
-export const BRAND_LOGO = '/images/brand/logo.png';
-export const BRAND_LOGO_CREST = '/images/brand/logo-crest.png';
+/** Canonical Kingstone shield logo — favicon, UI, OG, and JSON-LD */
+export const BRAND_LOGO = '/images/brand/kingstone-logo.png';
+export const BRAND_LOGO_CREST = BRAND_LOGO;
 
-/** Lawn Pups → Kingstone rebrand graphic — canonical image for search & social previews */
-export const SEO_REBRAND_IMAGE_PATH = '/images/brand/kingstone-rebrand-seo.png';
+export const SEO_REBRAND_IMAGE_PATH = BRAND_LOGO;
 export const SEO_REBRAND_IMAGE_WIDTH = 1312;
 export const SEO_REBRAND_IMAGE_HEIGHT = 1199;
 export const SEO_REBRAND_IMAGE_ALT =
-  'Kingstone Landscaping rebrand from Lawn Pups — kingstonelandscaping.com';
+  'Kingstone Landscaping — premium lawn care and landscaping in Georgia';
 
 /** Absolute URL on production domain — used in OG, Twitter, and JSON-LD regardless of deploy host */
 export const SEO_REBRAND_IMAGE_URL = `https://www.kingstonelandscaping.com${SEO_REBRAND_IMAGE_PATH}`;
@@ -377,7 +377,7 @@ export const BLOG_ARTICLES = [
     title: 'Why We Rebranded from Lawn Pups to Kingstone Landscaping',
     slug: 'why-rebranded-lawn-pups-kingstone-landscaping',
     excerpt: 'Learn about our exciting rebrand from Lawn Pups to Kingstone Landscaping and what it means for our customers.',
-    publishedDate: '2026-05-01',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '5 min',
     keyword: 'Lawn Pups Kingstone Landscaping rebrand',
@@ -387,7 +387,7 @@ export const BLOG_ARTICLES = [
     title: 'The Ultimate Georgia Lawn Care Schedule: Month-by-Month Guide',
     slug: 'georgia-lawn-care-schedule-month-by-month',
     excerpt: 'Complete seasonal guide for maintaining a healthy lawn in Georgia throughout the year.',
-    publishedDate: '2026-04-15',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '8 min',
     keyword: 'Georgia lawn care schedule',
@@ -397,7 +397,7 @@ export const BLOG_ARTICLES = [
     title: '5 Hardscaping Ideas That Add Real Value to Atlanta Homes',
     slug: 'hardscaping-ideas-atlanta-homes',
     excerpt: 'Discover hardscaping designs that boost curb appeal and property value in Atlanta.',
-    publishedDate: '2026-04-01',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '7 min',
     keyword: 'hardscaping Atlanta',
@@ -407,7 +407,7 @@ export const BLOG_ARTICLES = [
     title: 'How to Prepare Your Georgia Lawn for Summer Heat & Drought',
     slug: 'prepare-georgia-lawn-summer-heat-drought',
     excerpt: 'Essential tips to protect your lawn from Georgia\'s intense summer weather.',
-    publishedDate: '2026-03-20',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '6 min',
     keyword: 'summer lawn care Georgia',
@@ -417,7 +417,7 @@ export const BLOG_ARTICLES = [
     title: 'Best Native Georgia Plants for Low-Maintenance Curb Appeal',
     slug: 'native-georgia-plants-landscaping',
     excerpt: 'Transform your landscape with beautiful, drought-tolerant native Georgia plants.',
-    publishedDate: '2026-03-05',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '7 min',
     keyword: 'native Georgia plants landscaping',
@@ -427,7 +427,7 @@ export const BLOG_ARTICLES = [
     title: 'Irrigation 101: When, How Often, and How Long to Water in Georgia',
     slug: 'irrigation-watering-schedule-georgia',
     excerpt: 'Master lawn irrigation timing and techniques optimized for Georgia\'s climate.',
-    publishedDate: '2026-02-18',
+    publishedDate: '05/16/2026',
     author: 'Kingstone Landscaping Team',
     readTime: '6 min',
     keyword: 'lawn irrigation Georgia',
