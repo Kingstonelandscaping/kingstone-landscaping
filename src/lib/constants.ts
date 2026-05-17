@@ -77,7 +77,7 @@ export const siteMetadata = {
     'Book a free estimate with Kingstone Landscaping (formerly Lawn Pups). Expert lawn care, edging, mulching, and landscape services across Atlanta, Gainesville, Cumming, and North Georgia.',
   keywords:
     'Kingstone Landscaping, landscaping Georgia, lawn care Georgia, Atlanta landscaping, Lawn Pups, hardscaping Georgia, lawn maintenance Atlanta, book lawn care estimate',
-  ogImage: '/og-image.png',
+  ogImage: 'https://kingstone-landscaping.vercel.app/og-image.png',
 };
 
 /** @deprecated Use siteMetadata */

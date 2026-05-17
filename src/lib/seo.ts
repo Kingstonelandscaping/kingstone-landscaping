@@ -23,7 +23,7 @@ export const generateMetaTags = (overrides: Partial<MetaTags>): MetaTags => ({
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  ogImage: `${COMPANY.url}${siteMetadata.ogImage}`,
+  ogImage: siteMetadata.ogImage,
   ogType: 'website',
   ...overrides,
 });
@@ -80,7 +80,7 @@ export const generateLocalBusinessSchema = () => ({
     opens: '07:00',
     closes: '19:00',
   },
-  image: `${COMPANY.url}/og-image.png`,
+  image: siteMetadata.ogImage,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
@@ -127,7 +127,7 @@ export const generateBlogPostSchema = (post: {
   '@type': 'BlogPosting',
   headline: post.title,
   description: post.description,
-  image: post.image || `${COMPANY.url}/og-image.png`,
+  image: post.image || siteMetadata.ogImage,
   author: {
     '@type': 'Organization',
     name: post.author,
