@@ -21,7 +21,13 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(COMPANY.url),
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : COMPANY.url
+  ),
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
