@@ -2,12 +2,26 @@ import {
   BRAND_LOGO,
   COMPANY,
   CUSTOMER_REVIEWS,
+  SEO_REBRAND_IMAGE_ALT,
+  SEO_REBRAND_IMAGE_HEIGHT,
+  SEO_REBRAND_IMAGE_URL,
+  SEO_REBRAND_IMAGE_WIDTH,
+  SEO_SITE_URLS,
   SERVICE_AREAS,
   SERVICE_MAP_CENTER,
   SERVICE_MAP_GEO_RADIUS_METERS,
   SERVICES,
   siteMetadata,
 } from './constants';
+
+const seoBrandImageObject = () => ({
+  '@type': 'ImageObject' as const,
+  url: SEO_REBRAND_IMAGE_URL,
+  width: SEO_REBRAND_IMAGE_WIDTH,
+  height: SEO_REBRAND_IMAGE_HEIGHT,
+  caption: SEO_REBRAND_IMAGE_ALT,
+  contentUrl: SEO_REBRAND_IMAGE_URL,
+});
 
 export interface MetaTags {
   title: string;
@@ -26,6 +40,29 @@ export const generateMetaTags = (overrides: Partial<MetaTags>): MetaTags => ({
   ogImage: siteMetadata.ogImage,
   ogType: 'website',
   ...overrides,
+});
+
+/** Shared Open Graph / Twitter image config — rebrand graphic on kingstonelandscaping.com */
+export const sharedOpenGraphImages = () => [
+  {
+    url: SEO_REBRAND_IMAGE_URL,
+    width: SEO_REBRAND_IMAGE_WIDTH,
+    height: SEO_REBRAND_IMAGE_HEIGHT,
+    alt: SEO_REBRAND_IMAGE_ALT,
+    type: 'image/png',
+  },
+];
+
+export const generateBrandImageSchema = () => ({
+  '@context': 'https://schema.org',
+  ...seoBrandImageObject(),
+  name: SEO_REBRAND_IMAGE_ALT,
+  representativeOfPage: true,
+  about: {
+    '@type': 'Organization',
+    name: COMPANY.name,
+    url: COMPANY.url,
+  },
 });
 
 // Local Business Schema
@@ -80,7 +117,8 @@ export const generateLocalBusinessSchema = () => ({
     opens: '07:00',
     closes: '19:00',
   },
-  image: siteMetadata.ogImage,
+  image: [SEO_REBRAND_IMAGE_URL, `${COMPANY.url}${BRAND_LOGO}`],
+  logo: seoBrandImageObject(),
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5',
@@ -142,10 +180,12 @@ export const generateOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: COMPANY.name,
-  alternateName: COMPANY.formerName,
+  alternateName: [COMPANY.formerName, 'kingstonelandscaping', 'kingstonelandscaping.com'],
   url: COMPANY.url,
-  logo: `${COMPANY.url}${BRAND_LOGO}`,
+  logo: seoBrandImageObject(),
+  image: seoBrandImageObject(),
   description: COMPANY.description,
+  sameAs: [...SEO_SITE_URLS],
   contact: {
     '@type': 'ContactPoint',
     telephone: COMPANY.phone,
@@ -158,7 +198,14 @@ export const generateWebsiteSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: COMPANY.name,
+  alternateName: ['kingstonelandscaping.com', 'KingstoneLandscaping.com'],
   url: COMPANY.url,
+  image: seoBrandImageObject(),
+  publisher: {
+    '@type': 'Organization',
+    name: COMPANY.name,
+    logo: seoBrandImageObject(),
+  },
 });
 
 // Service Schema

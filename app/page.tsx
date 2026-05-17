@@ -21,13 +21,19 @@ import {
   SERVICE_AREAS,
   siteMetadata,
 } from '@/lib/constants';
-import { generateFAQSchema } from '@/lib/seo';
+import { generateFAQSchema, sharedOpenGraphImages } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
   alternates: { canonical: COMPANY.url },
+  openGraph: {
+    url: COMPANY.url,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: sharedOpenGraphImages(),
+  },
 };
 
 export default function HomePage() {

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import { SEO_REBRAND_IMAGE_PATH } from '@/lib/constants';
 
 export default function RebrandBanner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -16,7 +17,7 @@ export default function RebrandBanner() {
         <div className="flex items-center gap-3 min-w-0">
           <div className="relative w-16 h-10 md:w-24 md:h-14 flex-shrink-0 hidden sm:block">
             <Image
-              src="/images/48BB2803-BAA6-40F9-8955-B72FC5A4BF3D.png"
+              src={SEO_REBRAND_IMAGE_PATH}
               alt="Lawn Pups to Kingstone Landscaping rebrand"
               fill
               className="object-contain object-left"

@@ -71,13 +71,35 @@ export const BOOK_CTA = 'Book Free Estimate';
 
 export const BRAND_LOGO = '/images/brand/logo.png';
 
+/** Lawn Pups → Kingstone rebrand graphic — canonical image for search & social previews */
+export const SEO_REBRAND_IMAGE_PATH = '/images/brand/kingstone-rebrand-seo.png';
+export const SEO_REBRAND_IMAGE_WIDTH = 1312;
+export const SEO_REBRAND_IMAGE_HEIGHT = 1199;
+export const SEO_REBRAND_IMAGE_ALT =
+  'Kingstone Landscaping rebrand from Lawn Pups — kingstonelandscaping.com';
+
+/** Absolute URL on production domain — used in OG, Twitter, and JSON-LD regardless of deploy host */
+export const SEO_REBRAND_IMAGE_URL = `https://www.kingstonelandscaping.com${SEO_REBRAND_IMAGE_PATH}`;
+
+/** Domains and mirrors that should resolve to the same brand + SEO image */
+export const SEO_SITE_URLS = [
+  'https://www.kingstonelandscaping.com',
+  'https://kingstonelandscaping.com',
+  'http://www.kingstonelandscaping.com',
+  'http://kingstonelandscaping.com',
+  'https://kingstone-landscaping.vercel.app',
+] as const;
+
 export const siteMetadata = {
   title: 'Kingstone Landscaping | Lawn Care & Landscaping in Georgia',
   description:
     'Book a free estimate with Kingstone Landscaping (formerly Lawn Pups). Expert lawn care, edging, mulching, and landscape services across Atlanta, Gainesville, Cumming, and North Georgia.',
   keywords:
-    'Kingstone Landscaping, landscaping Georgia, lawn care Georgia, Atlanta landscaping, Lawn Pups, hardscaping Georgia, lawn maintenance Atlanta, book lawn care estimate',
-  ogImage: 'https://kingstone-landscaping.vercel.app/og-image.png',
+    'Kingstone Landscaping, kingstonelandscaping, kingstonelandscaping.com, KingstoneLandscaping.com, landscaping Georgia, lawn care Georgia, Atlanta landscaping, Lawn Pups, hardscaping Georgia, lawn maintenance Atlanta, book lawn care estimate',
+  ogImage: SEO_REBRAND_IMAGE_URL,
+  ogImageWidth: SEO_REBRAND_IMAGE_WIDTH,
+  ogImageHeight: SEO_REBRAND_IMAGE_HEIGHT,
+  ogImageAlt: SEO_REBRAND_IMAGE_ALT,
 };
 
 /** @deprecated Use siteMetadata */
