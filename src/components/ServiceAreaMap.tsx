@@ -2,12 +2,22 @@
 
 import { useEffect, useRef } from 'react';
 import {
+  MILES_PER_DEGREE_LAT,
   SERVICE_MAP_HUBS,
   SERVICE_MAP_RADIUS_MILES,
+  SERVICE_MAP_SOUTH_BOUND_LAT,
 } from '@/lib/constants';
 import 'leaflet/dist/leaflet.css';
 
 const MILES_TO_METERS = 1609.34;
+
+/** Cap circle size so coverage does not extend south of Alpharetta */
+function southCappedRadiusMiles(hubLat: number): number {
+  const milesToSouthBound =
+    (hubLat - SERVICE_MAP_SOUTH_BOUND_LAT) * MILES_PER_DEGREE_LAT;
+  if (milesToSouthBound <= 0) return 0;
+  return Math.min(SERVICE_MAP_RADIUS_MILES, milesToSouthBound);
+}
 
 const BRAND_GOLD = '#c9a227';
 const BRAND_NAVY = '#152238';
@@ -43,19 +53,21 @@ export default function ServiceAreaMap({ className }: ServiceAreaMapProps) {
         maxZoom: 18,
       }).addTo(map);
 
-      const radiusMeters = SERVICE_MAP_RADIUS_MILES * MILES_TO_METERS;
       const bounds = L.latLngBounds([]);
 
       SERVICE_MAP_HUBS.forEach((hub) => {
         const position: L.LatLngExpression = [hub.lat, hub.lng];
+        const radiusMiles = southCappedRadiusMiles(hub.lat);
 
-        L.circle(position, {
-          radius: radiusMeters,
-          color: BRAND_GOLD,
-          weight: 2,
-          fillColor: BRAND_GOLD,
-          fillOpacity: 0.2,
-        }).addTo(map);
+        if (radiusMiles > 0) {
+          L.circle(position, {
+            radius: radiusMiles * MILES_TO_METERS,
+            color: BRAND_GOLD,
+            weight: 2,
+            fillColor: BRAND_GOLD,
+            fillOpacity: 0.2,
+          }).addTo(map);
+        }
 
         L.circleMarker(position, {
           radius: 8,
@@ -72,9 +84,28 @@ export default function ServiceAreaMap({ className }: ServiceAreaMapProps) {
           .addTo(map);
 
         bounds.extend([hub.lat, hub.lng]);
+
+        const latDelta = radiusMiles / MILES_PER_DEGREE_LAT;
+        const lngDelta =
+          radiusMiles /
+          (MILES_PER_DEGREE_LAT * Math.cos((hub.lat * Math.PI) / 180));
+        bounds.extend([hub.lat + latDelta, hub.lng - lngDelta]);
+        bounds.extend([hub.lat + latDelta, hub.lng + lngDelta]);
+        bounds.extend([
+          Math.max(hub.lat - latDelta, SERVICE_MAP_SOUTH_BOUND_LAT),
+          hub.lng,
+        ]);
       });
 
       map.fitBounds(bounds, { padding: [40, 40] });
+
+      const south = SERVICE_MAP_SOUTH_BOUND_LAT - 0.03;
+      map.setMaxBounds(
+        L.latLngBounds(
+          [south, bounds.getWest() - 0.15],
+          [bounds.getNorth() + 0.08, bounds.getEast() + 0.15],
+        ),
+      );
     };
 
     initMap();

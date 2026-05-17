@@ -39,14 +39,12 @@ export const SERVICE_AREAS = [
   'Gainesville',
   'Cumming',
   'Alpharetta',
-  'Roswell',
-  'Sandy Springs',
-  'Decatur',
-  'Dunwoody',
-  'Kennesaw',
-  'Smyrna',
-  'Atlanta',
-  'Marietta',
+  'Buford',
+  'Flowery Branch',
+  'Suwanee',
+  'Milton',
+  'Dawsonville',
+  'Oakwood',
 ] as const;
 
 export const SERVICE_AREAS_LIST = SERVICE_AREAS.join(', ');
@@ -59,6 +57,12 @@ export const SERVICE_MAP_HUBS = [
 
 export const SERVICE_MAP_RADIUS_MILES = 18;
 
+/** Southern limit — coverage and map view do not extend past Alpharetta */
+export const SERVICE_MAP_SOUTH_BOUND_LAT = 34.0754;
+
+/** Approximate statute miles per degree of latitude (Georgia) */
+export const MILES_PER_DEGREE_LAT = 69;
+
 /** Centroid of hub cities — used for map default center and schema.org GeoCircle */
 export const SERVICE_MAP_CENTER = {
   lat:
@@ -67,8 +71,8 @@ export const SERVICE_MAP_CENTER = {
     SERVICE_MAP_HUBS.reduce((sum, hub) => sum + hub.lng, 0) / SERVICE_MAP_HUBS.length,
 };
 
-/** ~35 km covers Gainesville–Cumming–Alpharetta triangle plus suburbs */
-export const SERVICE_MAP_GEO_RADIUS_METERS = 35000;
+/** ~25 km — Gainesville–Cumming–Alpharetta corridor (south edge at Alpharetta) */
+export const SERVICE_MAP_GEO_RADIUS_METERS = 25000;
 
 export const CALENDLY_URL =
   'https://calendly.com/kingstonelandscaping-proton/30min?hide_event_type_details=1&hide_gdpr_banner=1';
