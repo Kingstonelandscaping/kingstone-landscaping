@@ -48,8 +48,13 @@ export default function HomeHero() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/20 to-transparent blur-2xl scale-150 pointer-events-none" />
-              <BrandLogo size="hero" priority className="relative z-10 ring-4 ring-gold/40" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gold/20 to-transparent blur-2xl scale-110 pointer-events-none" />
+              <BrandLogo
+                size="hero"
+                shape="rounded"
+                priority
+                className="relative z-10 ring-4 ring-gold/40"
+              />
             </motion.div>
           </motion.div>
 
