@@ -1,0 +1,201 @@
+import {
+  BRAND_LOGO,
+  COMPANY,
+  CUSTOMER_REVIEWS,
+  SERVICE_AREAS,
+  SERVICE_MAP_CENTER,
+  SERVICE_MAP_GEO_RADIUS_METERS,
+  SERVICES,
+  siteMetadata,
+} from './constants';
+
+export interface MetaTags {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+export const generateMetaTags = (overrides: Partial<MetaTags>): MetaTags => ({
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  ogImage: `${COMPANY.url}${siteMetadata.ogImage}`,
+  ogType: 'website',
+  ...overrides,
+});
+
+// Local Business Schema
+export const generateLocalBusinessSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: COMPANY.name,
+  alternateName: [COMPANY.formerName, 'Lawn Pups Georgia', 'Lawn Pups Landscaping'],
+  description: COMPANY.description,
+  telephone: COMPANY.phone,
+  email: COMPANY.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressRegion: 'Georgia',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: SERVICE_MAP_CENTER.lat,
+    longitude: SERVICE_MAP_CENTER.lng,
+  },
+  areaServed: [
+    {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: SERVICE_MAP_CENTER.lat,
+        longitude: SERVICE_MAP_CENTER.lng,
+      },
+      geoRadius: SERVICE_MAP_GEO_RADIUS_METERS,
+    },
+    ...SERVICE_AREAS.map((area) => ({
+      '@type': 'City',
+      name: area,
+      addressRegion: 'Georgia',
+      addressCountry: 'US',
+    })),
+  ],
+  priceRange: '$45-$400+',
+  url: COMPANY.url,
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '07:00',
+    closes: '19:00',
+  },
+  image: `${COMPANY.url}/og-image.png`,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: String(CUSTOMER_REVIEWS.length),
+    bestRating: '5',
+    worstRating: '5',
+  },
+  review: CUSTOMER_REVIEWS.map((review) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: review.name },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(review.rating),
+      bestRating: '5',
+    },
+    reviewBody: review.text,
+  })),
+});
+
+// FAQ Schema
+export const generateFAQSchema = (faqs: Array<{ question: string; answer: string }>) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+});
+
+// Blog Post Schema
+export const generateBlogPostSchema = (post: {
+  title: string;
+  description: string;
+  author: string;
+  publishedDate: string;
+  slug: string;
+  image?: string;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  image: post.image || `${COMPANY.url}/og-image.png`,
+  author: {
+    '@type': 'Organization',
+    name: post.author,
+  },
+  datePublished: post.publishedDate,
+  dateModified: post.publishedDate,
+  url: `${COMPANY.url}/blog/${post.slug}`,
+});
+
+// Organization Schema
+export const generateOrganizationSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: COMPANY.name,
+  alternateName: COMPANY.formerName,
+  url: COMPANY.url,
+  logo: `${COMPANY.url}${BRAND_LOGO}`,
+  description: COMPANY.description,
+  contact: {
+    '@type': 'ContactPoint',
+    telephone: COMPANY.phone,
+    contactType: 'Customer Service',
+  },
+});
+
+// Website Search Action Schema
+export const generateWebsiteSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: COMPANY.name,
+  url: COMPANY.url,
+});
+
+// Service Schema
+export const generateServiceSchema = (service: (typeof SERVICES)[0]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.name,
+  description: service.description,
+  ...('image' in service &&
+    service.image && {
+      image: `${COMPANY.url}${service.image}`,
+    }),
+  areaServed: SERVICE_AREAS.map((area) => ({
+    '@type': 'City',
+    name: area,
+  })),
+  provider: {
+    '@type': 'LocalBusiness',
+    name: COMPANY.name,
+    telephone: COMPANY.phone,
+  },
+  priceRange: service.price,
+});
+
+/** @deprecated Reviews are included in generateLocalBusinessSchema() */
+export const generateReviewSchema = generateLocalBusinessSchema;
+
+// Breadcrumb Schema
+export const generateBreadcrumbSchema = (
+  items: Array<{ name: string; url: string }>,
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  })),
+});
