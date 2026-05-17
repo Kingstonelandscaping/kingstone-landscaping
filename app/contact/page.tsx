@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Phone, Mail, Clock, MapPin, MessageSquare } from 'lucide-react';
 import BookingSection from '@/components/BookingSection';
 import ContactForm from '@/components/ContactForm';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
 import BookLink from '@/components/BookLink';
-import { BOOK_CTA, BUSINESS_HOURS, COMPANY, SERVICE_AREAS } from '@/lib/constants';
+import {
+  BOOK_CTA,
+  BUSINESS_HOURS,
+  COMPANY,
+  PHONE_SMS_HREF,
+  PHONE_TEL_HREF,
+  SERVICE_AREAS,
+} from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Kingstone Landscaping Georgia | Book Free Estimate',
@@ -46,18 +53,25 @@ export default function ContactPage() {
                   <Phone size={24} className="text-[#d4af37] mt-1" />
                   <div>
                     <p className="font-semibold text-[#1b4d2e]">Call or Text</p>
-                    <a
-                      href={`tel:${COMPANY.phone}`}
-                      className="text-lg text-[#1b4d2e] hover:text-[#d4af37] font-bold block"
-                    >
-                      {COMPANY.phoneDisplay}
-                    </a>
-                    <a
-                      href={`sms:${COMPANY.phone}`}
-                      className="text-sm text-[#2d6a41] hover:underline"
-                    >
-                      Send a text message
-                    </a>
+                    <p className="text-lg text-[#1b4d2e] font-bold mb-3">
+                      {COMPANY.phoneDisplayShort}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <a
+                        href={PHONE_TEL_HREF}
+                        className="btn-outline flex items-center justify-center gap-2 min-h-[44px] flex-1 text-sm"
+                      >
+                        <Phone size={18} aria-hidden />
+                        Call
+                      </a>
+                      <a
+                        href={PHONE_SMS_HREF}
+                        className="btn-outline flex items-center justify-center gap-2 min-h-[44px] flex-1 text-sm"
+                      >
+                        <MessageSquare size={18} aria-hidden />
+                        Text
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

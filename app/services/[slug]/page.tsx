@@ -7,6 +7,7 @@ import BookLink from '@/components/BookLink';
 import {
   BOOK_CTA,
   COMPANY,
+  PHONE_TEL_HREF,
   SERVICE_LANDING_PAGES,
   SERVICES,
   SERVICE_AREAS,
@@ -138,11 +139,14 @@ export default async function ServiceLandingPage({ params }: Props) {
           <p className="text-[#D4AF37] text-sm mb-2">Kingstone Landscaping • Formerly Lawn Pups</p>
           <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">{page.title}</h1>
           <p className="text-lg text-gray-200 mb-8">{copy.intro}</p>
-          <div className="flex flex-wrap gap-4">
-            <BookLink className="btn-book" />
-            <a href={`tel:${COMPANY.phone}`} className="btn-outline border-white text-white hover:bg-white hover:text-[#1B4D2E] flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+            <BookLink className="btn-book min-h-[44px] w-full sm:w-auto" />
+            <a
+              href={PHONE_TEL_HREF}
+              className="btn-outline border-white text-white hover:bg-white hover:text-[#1B4D2E] flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto"
+            >
               <Phone size={18} />
-              {COMPANY.phoneDisplay}
+              {COMPANY.phoneDisplayShort}
             </a>
           </div>
         </div>

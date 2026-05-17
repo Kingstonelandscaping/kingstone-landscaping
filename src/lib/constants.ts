@@ -16,7 +16,11 @@ export const COMPANY = {
   name: 'Kingstone Landscaping',
   formerName: 'Lawn Pups',
   phone: '770-330-9282',
+  /** E.164 — required for reliable tel:/sms: links on iOS and Android */
+  phoneE164: '+17703309282',
   phoneDisplay: '+1 (770) 330-9282',
+  /** Shorter label for tight mobile headers and buttons */
+  phoneDisplayShort: '(770) 330-9282',
   email: 'info@lawnpups.com',
   domain: 'kingstonelandscaping.com',
   url: 'https://www.kingstonelandscaping.com',
@@ -26,6 +30,9 @@ export const COMPANY = {
   description:
     'Kingstone Landscaping (formerly Lawn Pups) is a trusted local landscaping company in Georgia. Expert lawn care, landscape design, hardscaping & maintenance across Gainesville, Cumming, Alpharetta & surrounding areas.',
 };
+
+export const PHONE_TEL_HREF = `tel:${COMPANY.phoneE164}`;
+export const PHONE_SMS_HREF = `sms:${COMPANY.phoneE164}`;
 
 // Service Areas
 export const SERVICE_AREAS = [

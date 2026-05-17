@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
-import { CALENDLY_URL, COMPANY } from '@/lib/constants';
+import { CALENDLY_URL, COMPANY, PHONE_SMS_HREF, PHONE_TEL_HREF } from '@/lib/constants';
 
 export default function BookingSection() {
   const initialized = useRef(false);
@@ -53,15 +53,15 @@ export default function BookingSection() {
         <p className="text-center text-sm text-[#6b7280] mt-6 mb-4">Prefer to call or text?</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href={`tel:${COMPANY.phone}`}
-            className="btn-outline flex items-center gap-2 w-full sm:w-auto justify-center text-sm"
+            href={PHONE_TEL_HREF}
+            className="btn-outline flex items-center gap-2 w-full sm:w-auto justify-center text-sm min-h-[44px] px-6"
           >
             <Phone size={18} />
-            Call {COMPANY.phoneDisplay}
+            Call {COMPANY.phoneDisplayShort}
           </a>
           <a
-            href={`sms:${COMPANY.phone}`}
-            className="btn-ghost flex items-center gap-2 w-full sm:w-auto justify-center border border-[#e5e7eb]"
+            href={PHONE_SMS_HREF}
+            className="btn-outline flex items-center gap-2 w-full sm:w-auto justify-center text-sm min-h-[44px] px-6"
           >
             <MessageSquare size={18} />
             Text Us

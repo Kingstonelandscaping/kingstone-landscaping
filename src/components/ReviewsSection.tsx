@@ -30,7 +30,7 @@ export default function ReviewsSection() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f2918] mb-3">
             What Our Clients Say
           </h2>
-          <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
             {[1, 2, 3, 4, 5].map((i) => (
               <IconStar key={i} className="w-6 h-6 text-[#e85d04]" />
             ))}

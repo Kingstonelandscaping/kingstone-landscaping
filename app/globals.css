@@ -500,4 +500,12 @@ a:hover {
   h3 {
     font-size: 1.125rem;
   }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-book,
+  .btn-services,
+  .btn-outline {
+    min-height: 44px;
+  }
 }

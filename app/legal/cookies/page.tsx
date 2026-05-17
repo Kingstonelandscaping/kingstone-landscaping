@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { COMPANY } from '@/lib/constants';
+import { COMPANY, PHONE_TEL_HREF } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | Kingstone Landscaping',
@@ -76,7 +76,7 @@ export default function CookiesPage() {
           <div className="bg-[#F5F1E8] p-6 rounded-lg text-gray-700">
             <p><strong>{COMPANY.name}</strong></p>
             <p>Email: <a href={`mailto:${COMPANY.email}`} className="text-[#1B4D2E] hover:underline">{COMPANY.email}</a></p>
-            <p>Phone: <a href={`tel:${COMPANY.phone}`} className="text-[#1B4D2E] hover:underline">{COMPANY.phoneDisplay}</a></p>
+            <p>Phone: <a href={PHONE_TEL_HREF} className="text-[#1B4D2E] hover:underline">{COMPANY.phoneDisplayShort}</a></p>
           </div>
         </div>
       </section>

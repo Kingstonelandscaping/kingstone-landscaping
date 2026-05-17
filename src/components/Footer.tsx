@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { MapPin, Phone, Mail, Clock, Star } from 'lucide-react';
 import BrandLogo from '@/components/BrandLogo';
 import BookLink from '@/components/BookLink';
-import { BUSINESS_HOURS, COMPANY, HEADER_TAGLINE } from '@/lib/constants';
+import {
+  BUSINESS_HOURS,
+  COMPANY,
+  HEADER_TAGLINE,
+  PHONE_SMS_HREF,
+  PHONE_TEL_HREF,
+} from '@/lib/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -93,9 +99,17 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <Phone size={16} className="mt-1 flex-shrink-0 text-[#f97316]" />
-                <a href={`tel:${COMPANY.phone}`} className="hover:text-[#f97316] transition-colors text-gray-200">
-                  {COMPANY.phoneDisplay}
-                </a>
+                <div>
+                  <a href={PHONE_TEL_HREF} className="hover:text-[#f97316] transition-colors text-gray-200 block">
+                    {COMPANY.phoneDisplayShort}
+                  </a>
+                  <a
+                    href={PHONE_SMS_HREF}
+                    className="hover:text-[#f97316] transition-colors text-gray-400 text-xs mt-1 inline-block"
+                  >
+                    Send a text →
+                  </a>
+                </div>
               </div>
               <div className="flex items-start gap-2">
                 <Mail size={16} className="mt-1 flex-shrink-0 text-[#f97316]" />

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Clock, MapPin, Phone } from 'lucide-react';
+import { Clock, MapPin, MessageSquare, Phone } from 'lucide-react';
 import BookingSection from '@/components/BookingSection';
 import ServiceAreaSection from '@/components/ServiceAreaSection';
 import ServiceCard from '@/components/ServiceCard';
@@ -12,6 +12,8 @@ import {
   BOOK_CTA,
   COMPANY,
   HEADER_TAGLINE,
+  PHONE_SMS_HREF,
+  PHONE_TEL_HREF,
   SERVICES,
   WHY_CHOOSE_US,
   HOW_IT_WORKS,
@@ -61,15 +63,30 @@ export default function HomePage() {
               <span className="trust-chip">Same trusted crew</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <BookLink className="btn-book text-lg font-semibold px-8" />
-              <Link href="/services" className="btn-services text-lg font-semibold px-8">
+              <BookLink className="btn-book text-lg font-semibold px-8 w-full sm:w-auto" />
+              <Link
+                href="/services"
+                className="btn-services text-lg font-semibold px-8 w-full sm:w-auto text-center"
+              >
                 View Services
               </Link>
             </div>
-            <p className="mt-6 text-sm text-gray-300">
-              Prefer to call?{' '}
-              <a href={`tel:${COMPANY.phone}`} className="text-[#f97316] hover:underline">
-                {COMPANY.phoneDisplay}
+            <p className="mt-6 text-sm text-gray-300 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+              <span>
+                Prefer to call?{' '}
+                <a href={PHONE_TEL_HREF} className="text-[#f97316] hover:underline">
+                  {COMPANY.phoneDisplayShort}
+                </a>
+              </span>
+              <span className="hidden sm:inline text-gray-500" aria-hidden>
+                ·
+              </span>
+              <a
+                href={PHONE_SMS_HREF}
+                className="inline-flex items-center gap-1.5 text-[#f97316] hover:underline min-h-[44px] sm:min-h-0"
+              >
+                <MessageSquare size={16} aria-hidden />
+                Text us
               </a>
             </p>
           </div>
@@ -247,13 +264,20 @@ export default function HomePage() {
             Book your free on-site estimate today. No obligation, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <BookLink className="btn-book text-lg font-semibold px-8" />
+            <BookLink className="btn-book text-lg font-semibold px-8 w-full sm:w-auto" />
             <a
-              href={`tel:${COMPANY.phone}`}
-              className="btn-outline text-lg font-semibold border-white text-white hover:bg-white hover:text-[#1b4d2e] inline-flex items-center justify-center gap-2"
+              href={PHONE_TEL_HREF}
+              className="btn-outline text-lg font-semibold border-white text-white hover:bg-white hover:text-[#1b4d2e] inline-flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto"
             >
               <Phone size={20} />
-              {COMPANY.phoneDisplay}
+              {COMPANY.phoneDisplayShort}
+            </a>
+            <a
+              href={PHONE_SMS_HREF}
+              className="btn-outline text-lg font-semibold border-white text-white hover:bg-white hover:text-[#1b4d2e] inline-flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto"
+            >
+              <MessageSquare size={20} />
+              Text Us
             </a>
           </div>
           <div className="grid md:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
@@ -278,10 +302,10 @@ export default function HomePage() {
               <div>
                 <p className="font-semibold text-white">Questions?</p>
                 <a
-                  href={`tel:${COMPANY.phone}`}
+                  href={PHONE_TEL_HREF}
                   className="text-gray-300 text-sm hover:text-[#f97316]"
                 >
-                  {COMPANY.phoneDisplay}
+                  {COMPANY.phoneDisplayShort}
                 </a>
               </div>
             </div>

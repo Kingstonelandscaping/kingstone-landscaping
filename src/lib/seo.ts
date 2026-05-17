@@ -72,7 +72,7 @@ export const generateLocalBusinessSchema = () => ({
   name: COMPANY.name,
   alternateName: [COMPANY.formerName, 'Lawn Pups Georgia', 'Lawn Pups Landscaping'],
   description: COMPANY.description,
-  telephone: COMPANY.phone,
+  telephone: COMPANY.phoneE164,
   email: COMPANY.email,
   address: {
     '@type': 'PostalAddress',
@@ -188,7 +188,7 @@ export const generateOrganizationSchema = () => ({
   sameAs: [...SEO_SITE_URLS],
   contact: {
     '@type': 'ContactPoint',
-    telephone: COMPANY.phone,
+    telephone: COMPANY.phoneE164,
     contactType: 'Customer Service',
   },
 });
@@ -225,7 +225,7 @@ export const generateServiceSchema = (service: (typeof SERVICES)[0]) => ({
   provider: {
     '@type': 'LocalBusiness',
     name: COMPANY.name,
-    telephone: COMPANY.phone,
+    telephone: COMPANY.phoneE164,
   },
   priceRange: service.price,
 });

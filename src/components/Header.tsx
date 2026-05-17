@@ -10,7 +10,7 @@ import IconNavServices from '@/components/icons/nav/IconNavServices';
 import IconNavAbout from '@/components/icons/nav/IconNavAbout';
 import IconNavBlog from '@/components/icons/nav/IconNavBlog';
 import IconNavContact from '@/components/icons/nav/IconNavContact';
-import { COMPANY, HEADER_TAGLINE } from '@/lib/constants';
+import { COMPANY, HEADER_TAGLINE, PHONE_TEL_HREF } from '@/lib/constants';
 
 const navLinks = [
   { href: '/', label: 'Home', Icon: IconNavHome },
@@ -51,7 +51,7 @@ export default function Header() {
 
         <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <a
-            href={`tel:${COMPANY.phone}`}
+            href={PHONE_TEL_HREF}
             className="btn-ghost hidden lg:inline-flex items-center gap-1"
           >
             <Phone size={16} />
@@ -74,7 +74,7 @@ export default function Header() {
       </nav>
 
       <div className="bg-[#0f2918] py-2 px-4">
-        <p className="container-custom text-center text-xs sm:text-sm text-white font-medium leading-snug">
+        <p className="container-custom text-center text-xs sm:text-sm text-white font-medium leading-snug line-clamp-3 sm:line-clamp-none">
           {HEADER_TAGLINE}
         </p>
       </div>
@@ -97,11 +97,11 @@ export default function Header() {
               <BookLink className="btn-book flex items-center justify-center py-3 mt-2 w-full" />
             </div>
             <a
-              href={`tel:${COMPANY.phone}`}
-              className="btn-ghost flex items-center justify-center gap-2 py-2"
+              href={PHONE_TEL_HREF}
+              className="btn-outline flex items-center justify-center gap-2 py-3 min-h-[44px] w-full"
             >
               <Phone size={18} />
-              {COMPANY.phoneDisplay}
+              {COMPANY.phoneDisplayShort}
             </a>
           </div>
         </div>
