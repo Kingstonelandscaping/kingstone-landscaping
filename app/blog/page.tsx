@@ -14,12 +14,12 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1B4D2E] to-[#2D6A41] text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-bg to-charcoal text-white py-16 md:py-24">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             Kingstone Landscaping Blog — Georgia Lawn Care Tips
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl">
+          <p className="text-xl text-muted max-w-2xl">
             Expert insights on lawn care, design trends, and seasonal maintenance from your trusted local Georgia landscaping team.
           </p>
         </div>
@@ -36,16 +36,16 @@ export default function BlogPage() {
                 className="card p-6 hover:shadow-xl transition-all group"
               >
                 <div className="mb-4">
-                  <p className="text-sm text-[#D4AF37] font-semibold">
+                  <p className="text-sm text-gold font-semibold">
                     {article.publishedDate}
                   </p>
-                  <p className="text-xs text-gray-500">{article.readTime} read</p>
+                  <p className="text-xs text-muted">{article.readTime} read</p>
                 </div>
-                <h2 className="text-xl font-serif font-bold text-[#1B4D2E] mb-3 group-hover:text-[#D4AF37] transition-colors">
+                <h2 className="text-xl font-serif font-bold text-gold mb-3 group-hover:text-gold transition-colors">
                   {article.title}
                 </h2>
-                <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
-                <div className="flex items-center text-[#1B4D2E] font-semibold text-sm">
+                <p className="text-muted text-sm mb-4">{article.excerpt}</p>
+                <div className="flex items-center text-gold font-semibold text-sm">
                   Read More
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -56,19 +56,19 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="section-padding bg-[#1B4D2E] text-white">
+      <section className="section-padding section-dark">
         <div className="container-custom text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-serif font-bold mb-4">
             Get Landscaping Tips Delivered
           </h2>
-          <p className="text-gray-200 mb-6">
+          <p className="text-muted mb-6">
             Subscribe to our newsletter for seasonal lawn care tips, design inspiration, and exclusive offers.
           </p>
           <form className="flex gap-2">
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
+              className="flex-1 px-4 py-3 rounded-lg"
             />
             <button type="submit" className="btn-secondary">
               Subscribe

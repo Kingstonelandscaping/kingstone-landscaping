@@ -68,55 +68,55 @@ export default function ContactForm() {
       />
 
       <div>
-        <label htmlFor="name" className="block font-semibold text-[#1B4D2E] mb-2">
+        <label htmlFor="name" className="block font-semibold text-gold mb-2">
           Full Name *
         </label>
         <input
           id="name"
           type="text"
           {...register('name', { required: 'Name is required' })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B4D2E]"
+          className="w-full px-4 py-2 border border-gold/20 rounded-lg focus:ring-2 focus:ring-gold"
           placeholder="Your name"
         />
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="email" className="block font-semibold text-[#1B4D2E] mb-2">
+        <label htmlFor="email" className="block font-semibold text-gold mb-2">
           Email Address *
         </label>
         <input
           id="email"
           type="email"
           {...register('email', { required: 'Email is required' })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B4D2E]"
+          className="w-full px-4 py-2 border border-gold/20 rounded-lg focus:ring-2 focus:ring-gold"
           placeholder="your@email.com"
         />
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="phone" className="block font-semibold text-[#1B4D2E] mb-2">
+        <label htmlFor="phone" className="block font-semibold text-gold mb-2">
           Phone Number *
         </label>
         <input
           id="phone"
           type="tel"
           {...register('phone', { required: 'Phone is required' })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B4D2E]"
+          className="w-full px-4 py-2 border border-gold/20 rounded-lg focus:ring-2 focus:ring-gold"
           placeholder="(770) 330-9282"
         />
         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="service" className="block font-semibold text-[#1B4D2E] mb-2">
+        <label htmlFor="service" className="block font-semibold text-gold mb-2">
           Service Interested In
         </label>
         <select
           id="service"
           {...register('service')}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B4D2E]"
+          className="w-full px-4 py-2 border border-gold/20 rounded-lg focus:ring-2 focus:ring-gold"
         >
           <option value="">Select a service</option>
           <option value="lawn-mowing">Lawn Mowing &amp; Maintenance</option>
@@ -132,14 +132,14 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block font-semibold text-[#1B4D2E] mb-2">
+        <label htmlFor="message" className="block font-semibold text-gold mb-2">
           Message
         </label>
         <textarea
           id="message"
           rows={5}
           {...register('message')}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B4D2E]"
+          className="w-full px-4 py-2 border border-gold/20 rounded-lg focus:ring-2 focus:ring-gold"
           placeholder="Tell us about your project..."
         />
       </div>
@@ -148,7 +148,7 @@ export default function ContactForm() {
         {isLoading ? 'Sending...' : 'Request Free Estimate'}
       </button>
 
-      <p className="text-xs text-gray-600 text-center">
+      <p className="text-xs text-muted text-center">
         We respect your privacy. Your information will never be shared.
       </p>
     </form>

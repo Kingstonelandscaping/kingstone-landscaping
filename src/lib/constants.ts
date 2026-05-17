@@ -77,6 +77,7 @@ export const BOOK_HREF = '/#calendly';
 export const BOOK_CTA = 'Book Free Estimate';
 
 export const BRAND_LOGO = '/images/brand/logo.png';
+export const BRAND_LOGO_CREST = '/images/brand/logo-crest.png';
 
 /** Lawn Pups → Kingstone rebrand graphic — canonical image for search & social previews */
 export const SEO_REBRAND_IMAGE_PATH = '/images/brand/kingstone-rebrand-seo.png';

@@ -11,8 +11,8 @@ export default function RebrandBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#0f2918] py-2 px-4 animate-slideInDown relative overflow-hidden border-b border-[#2d6a41]/40">
-      <div className="absolute inset-0 hero-pattern pointer-events-none text-white" aria-hidden />
+    <div className="bg-charcoal py-2 px-4 animate-slideInDown relative overflow-hidden border-b border-gold/30">
+      <div className="absolute inset-0 stone-texture pointer-events-none opacity-30" aria-hidden />
       <div className="container-custom flex items-center justify-between gap-4 relative z-10">
         <div className="flex items-center gap-3 min-w-0">
           <div className="relative w-16 h-10 md:w-24 md:h-14 flex-shrink-0 hidden sm:block">
@@ -24,18 +24,18 @@ export default function RebrandBanner() {
               sizes="96px"
             />
           </div>
-          <p className="text-xs md:text-sm text-gray-200 line-clamp-2 sm:line-clamp-none">
-            <strong className="text-white">Kingstone Landscaping</strong> is the rebranded name of{' '}
-            <span className="text-[#f97316]">Lawn Pups</span> — same Georgia crew, elevated brand.
+          <p className="text-xs md:text-sm text-muted line-clamp-2 sm:line-clamp-none">
+            <strong className="text-gold">Kingstone Landscaping</strong> is the rebranded name of{' '}
+            <span className="text-foreground">Lawn Pups</span> — same Georgia crew, elevated brand.
           </p>
         </div>
         <button
           type="button"
           onClick={() => setIsVisible(false)}
           aria-label="Close banner"
-          className="flex-shrink-0 hover:bg-white/10 p-1 rounded transition-colors"
+          className="flex-shrink-0 hover:bg-gold/10 p-1 rounded transition-colors text-foreground"
         >
-          <X size={18} className="text-white" />
+          <X size={18} />
         </button>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default async function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#1b4d2e',
+          background: '#0a0a0a',
           borderRadius: '50%',
           overflow: 'hidden',
         }}

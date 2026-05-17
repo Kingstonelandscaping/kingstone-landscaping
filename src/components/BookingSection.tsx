@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
+import Reveal from '@/components/motion/Reveal';
 import { CALENDLY_URL, COMPANY, PHONE_SMS_HREF, PHONE_TEL_HREF } from '@/lib/constants';
 
 export default function BookingSection() {
@@ -35,22 +36,26 @@ export default function BookingSection() {
   }, []);
 
   return (
-    <section id="calendly" className="section-padding bg-white border-t border-[#e5e7eb]">
+    <section id="calendly" className="section-padding section-light border-t border-gold/20">
       <div className="container-custom">
-        <h2 className="text-2xl md:text-3xl font-serif font-bold text-center text-[#1b4d2e] mb-2">
-          Book Your Free 30-Minute Estimate
-        </h2>
-        <p className="text-center text-[#6b7280] mb-8 max-w-xl mx-auto">
-          Pick a time that works for you. We will visit your property and provide a clear quote — no
-          pressure.
-        </p>
-        <div
-          id="calendly-inline-widget"
-          className="calendly-inline-widget rounded-xl overflow-hidden border border-[#e5e7eb] shadow-sm"
-          data-url={CALENDLY_URL}
-          style={{ minWidth: '280px', width: '100%', height: 'min(700px, 85vh)' }}
-        />
-        <p className="text-center text-sm text-[#6b7280] mt-6 mb-4">Prefer to call or text?</p>
+        <Reveal>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-center text-gold mb-2">
+            Book Your Free 30-Minute Estimate
+          </h2>
+          <p className="text-center text-muted mb-8 max-w-xl mx-auto">
+            Pick a time that works for you. We will visit your property and provide a clear quote —
+            no pressure.
+          </p>
+        </Reveal>
+        <div className="calendly-wrap">
+          <div
+            id="calendly-inline-widget"
+            className="calendly-inline-widget rounded-xl overflow-hidden"
+            data-url={CALENDLY_URL}
+            style={{ minWidth: '280px', width: '100%', height: 'min(700px, 85vh)' }}
+          />
+        </div>
+        <p className="text-center text-sm text-muted mt-6 mb-4">Prefer to call or text?</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={PHONE_TEL_HREF}

@@ -5,7 +5,6 @@ import { Phone } from 'lucide-react';
 import IconCheck from '@/components/icons/IconCheck';
 import BookLink from '@/components/BookLink';
 import {
-  BOOK_CTA,
   COMPANY,
   PHONE_TEL_HREF,
   SERVICE_LANDING_PAGES,
@@ -134,16 +133,16 @@ export default async function ServiceLandingPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1B4D2E] to-[#2D6A41] text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-bg to-charcoal text-white py-16 md:py-24">
         <div className="container-custom max-w-3xl">
-          <p className="text-[#D4AF37] text-sm mb-2">Kingstone Landscaping • Formerly Lawn Pups</p>
+          <p className="text-gold text-sm mb-2">Kingstone Landscaping • Formerly Lawn Pups</p>
           <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">{page.title}</h1>
-          <p className="text-lg text-gray-200 mb-8">{copy.intro}</p>
+          <p className="text-lg text-muted mb-8">{copy.intro}</p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <BookLink className="btn-book min-h-[44px] w-full sm:w-auto" />
             <a
               href={PHONE_TEL_HREF}
-              className="btn-outline border-white text-white hover:bg-white hover:text-[#1B4D2E] flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto"
+              className="btn-secondary flex items-center justify-center gap-2 min-h-[44px] w-full sm:w-auto"
             >
               <Phone size={18} />
               {COMPANY.phoneDisplayShort}
@@ -152,25 +151,25 @@ export default async function ServiceLandingPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding section-light">
         <div className="container-custom max-w-3xl">
-          <h2 className="text-2xl font-serif font-bold text-[#1B4D2E] mb-6">
+          <h2 className="text-2xl font-serif font-bold text-gold mb-6">
             {service.name} — What to Expect
           </h2>
           <ul className="space-y-3 mb-8">
             {copy.details.map((item, i) => (
-              <li key={i} className="flex gap-2 text-gray-700 items-start">
-                <IconCheck className="w-5 h-5 text-[#d4af37] flex-shrink-0 mt-0.5" />
+              <li key={i} className="flex gap-2 text-muted items-start">
+                <IconCheck className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 {item}
               </li>
             ))}
           </ul>
           {service.pricing && (
-            <div className="bg-[#F5F1E8] rounded-lg p-6 mb-8">
-              <h3 className="font-semibold text-[#1B4D2E] mb-4">Estimated Pricing</h3>
+            <div className="bg-charcoal rounded-lg p-6 mb-8">
+              <h3 className="font-semibold text-gold mb-4">Estimated Pricing</h3>
               <div className="space-y-2">
                 {service.pricing.map((tier, i) => (
-                  <div key={i} className="flex justify-between text-gray-700">
+                  <div key={i} className="flex justify-between text-muted">
                     <span>{tier.size}</span>
                     <span className="font-semibold">{tier.price}</span>
                   </div>
@@ -178,8 +177,8 @@ export default async function ServiceLandingPage({ params }: Props) {
               </div>
             </div>
           )}
-          <h2 className="text-2xl font-serif font-bold text-[#1B4D2E] mb-4">Service Areas</h2>
-          <p className="text-gray-700 mb-8">
+          <h2 className="text-2xl font-serif font-bold text-gold mb-4">Service Areas</h2>
+          <p className="text-muted mb-8">
             We serve {SERVICE_AREAS.join(', ')}, and surrounding Georgia communities. Not sure if
             you&apos;re in our service area? Just ask at {COMPANY.email} or call {COMPANY.phoneDisplay}.
           </p>

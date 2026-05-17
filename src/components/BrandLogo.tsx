@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/cn';
 
-const LOGO_SRC = '/images/brand/logo.png';
+const LOGO_SRC = '/images/brand/logo-crest.png';
 
 const sizes = {
   sm: 44,
@@ -21,7 +21,7 @@ export default function BrandLogo({ size = 'sm', className, priority = false }: 
   return (
     <div
       className={cn(
-        'relative flex-shrink-0 rounded-full overflow-hidden ring-2 ring-[#e85d04]/40 bg-[#1b4d2e]',
+        'relative flex-shrink-0 overflow-hidden ring-2 ring-gold/50 bg-charcoal',
         className
       )}
       style={{ width: px, height: px }}
@@ -30,7 +30,7 @@ export default function BrandLogo({ size = 'sm', className, priority = false }: 
         src={LOGO_SRC}
         alt="Kingstone Landscaping"
         fill
-        className="object-cover"
+        className="object-contain p-0.5"
         sizes={`${px}px`}
         priority={priority}
       />

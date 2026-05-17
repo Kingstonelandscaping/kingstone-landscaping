@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   LucideIcon,
   Leaf,
@@ -59,22 +58,20 @@ export default function ServiceCard({
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={priority}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f2918]/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-transparent to-transparent" />
         </div>
       ) : (
-        <div className="aspect-[16/10] w-full bg-[#f5f1e8] flex items-center justify-center">
-          <IconComponent size={40} className="text-[#e85d04]" />
+        <div className="aspect-[16/10] w-full bg-charcoal flex items-center justify-center">
+          <IconComponent size={40} className="text-gold" />
         </div>
       )}
       <div className="p-6 flex flex-col flex-1">
-        {!image && (
-          <IconComponent size={28} className="text-[#e85d04] mb-3" aria-hidden />
-        )}
-        <h3 className="text-xl font-serif font-bold text-[#1b4d2e] mb-2">{name}</h3>
-        <p className="text-[#6b7280] text-sm mb-4 flex-1">{description}</p>
+        {!image && <IconComponent size={28} className="text-gold mb-3" aria-hidden />}
+        <h3 className="text-xl font-serif font-bold text-gold mb-2">{name}</h3>
+        <p className="text-muted text-sm mb-4 flex-1">{description}</p>
         <div className="mb-4">
-          <p className="text-2xl font-bold text-[#1b4d2e]">{price}</p>
-          <p className="text-xs text-[#6b7280]">Starting at</p>
+          <p className="text-2xl font-bold text-gold-light">{price}</p>
+          <p className="text-xs text-muted">Starting at</p>
         </div>
         <BookLink className="btn-book text-sm w-full text-center" />
       </div>

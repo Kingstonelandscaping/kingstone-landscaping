@@ -9,8 +9,8 @@ import 'leaflet/dist/leaflet.css';
 
 const MILES_TO_METERS = 1609.34;
 
-const BRAND_GREEN = '#1b4d2e';
-const BRAND_ORANGE = '#f97316';
+const BRAND_GOLD = '#c9a227';
+const BRAND_NAVY = '#152238';
 
 type ServiceAreaMapProps = {
   className?: string;
@@ -51,9 +51,9 @@ export default function ServiceAreaMap({ className }: ServiceAreaMapProps) {
 
         L.circle(position, {
           radius: radiusMeters,
-          color: BRAND_GREEN,
+          color: BRAND_GOLD,
           weight: 2,
-          fillColor: BRAND_GREEN,
+          fillColor: BRAND_GOLD,
           fillOpacity: 0.2,
         }).addTo(map);
 
@@ -61,7 +61,7 @@ export default function ServiceAreaMap({ className }: ServiceAreaMapProps) {
           radius: 8,
           color: '#ffffff',
           weight: 2,
-          fillColor: BRAND_ORANGE,
+          fillColor: BRAND_NAVY,
           fillOpacity: 1,
         })
           .bindTooltip(hub.name, {
@@ -91,7 +91,7 @@ export default function ServiceAreaMap({ className }: ServiceAreaMapProps) {
   return (
     <div
       ref={containerRef}
-      className={`z-0 min-h-[240px] sm:min-h-[280px] md:min-h-[400px] w-full rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-lg [&_.leaflet-control-zoom]:border-0 [&_.leaflet-control-zoom_a]:rounded-md ${className ?? ''}`}
+      className={`z-0 min-h-[240px] sm:min-h-[280px] md:min-h-[400px] w-full rounded-2xl overflow-hidden border border-gold/20 shadow-lg [&_.leaflet-control-zoom]:border-0 [&_.leaflet-control-zoom_a]:rounded-md ${className ?? ''}`}
       role="img"
       aria-label="Service area map showing coverage around Gainesville, Cumming, and Alpharetta, Georgia"
     />

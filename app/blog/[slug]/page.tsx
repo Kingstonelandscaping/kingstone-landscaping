@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPostSlugs } from '@/content/blog/posts';
 import BookLink from '@/components/BookLink';
-import { BOOK_CTA, COMPANY } from '@/lib/constants';
+import { COMPANY } from '@/lib/constants';
 import { generateBlogPostSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 interface Props {
@@ -47,24 +47,24 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1B4D2E] to-[#2D6A41] text-white py-16 md:py-20">
+      <section className="bg-gradient-to-br from-bg to-charcoal text-white py-16 md:py-20">
         <div className="container-custom max-w-3xl">
-          <p className="text-[#D4AF37] text-sm mb-2">
+          <p className="text-gold text-sm mb-2">
             {post.readTime} read • {post.publishedDate}
           </p>
           <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">{post.title}</h1>
-          <p className="text-gray-200">By {post.author}</p>
+          <p className="text-muted">By {post.author}</p>
         </div>
       </section>
 
       <article className="section-padding">
         <div className="container-custom max-w-3xl prose-blog">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          <div className="mt-12 p-6 bg-[#F5F1E8] rounded-lg">
-            <h2 className="text-xl font-serif font-bold text-[#1B4D2E] mb-2">
+          <div className="mt-12 p-6 bg-charcoal rounded-lg">
+            <h2 className="text-xl font-serif font-bold text-gold mb-2">
               Need Professional Help?
             </h2>
-            <p className="text-gray-700 mb-4">
+            <p className="text-muted mb-4">
               Kingstone Landscaping, formerly Lawn Pups, serves Gainesville, Cumming, Alpharetta,
               and surrounding Georgia areas.
             </p>
@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
           <Link
             href="/blog"
-            className="inline-block mt-8 text-[#1B4D2E] font-semibold hover:underline"
+            className="inline-block mt-8 text-gold font-semibold hover:underline"
           >
             ← Back to all articles
           </Link>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Merriweather } from 'next/font/google';
+import { DM_Sans, Cinzel } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
@@ -21,10 +21,10 @@ import {
   sharedOpenGraphImages,
 } from '@/lib/seo';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const merriweather = Merriweather({
+const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' });
+const cinzel = Cinzel({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '600', '700'],
   variable: '--font-serif',
 });
 
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0f2918',
+  themeColor: '#0a0a0a',
 };
 
 export default function RootLayout({
@@ -87,7 +87,7 @@ export default function RootLayout({
   const brandImageSchema = generateBrandImageSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${cinzel.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <link rel="canonical" href={COMPANY.url} />
@@ -106,7 +106,6 @@ export default function RootLayout({
         <meta name="geo.position" content="34.2979;-83.8247" />
         <meta name="ICBM" content="34.2979, -83.8247" />
 
-        {/* Google Analytics 4 */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script
@@ -130,7 +129,6 @@ export default function RootLayout({
           </>
         )}
 
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -148,13 +146,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(brandImageSchema) }}
         />
       </head>
-      <body className="font-sans antialiased bg-white">
+      <body className="font-sans antialiased bg-bg text-foreground">
         <RebrandBanner />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
 
-        {/* Calendly Loader */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="lazyOnload"
