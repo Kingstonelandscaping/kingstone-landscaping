@@ -28,16 +28,6 @@ body {
   overflow-x: clip;
 }
 
-body.cookie-banner-visible {
-  padding-bottom: 7rem;
-}
-
-@media (min-width: 768px) {
-  body.cookie-banner-visible {
-    padding-bottom: 5.5rem;
-  }
-}
-
 h1,
 h2,
 h3,

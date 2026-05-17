@@ -4,7 +4,6 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CookieConsent from '@/components/CookieConsent';
 import RebrandBanner from '@/components/RebrandBanner';
 import {
   COMPANY,
@@ -154,7 +153,6 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <CookieConsent />
 
         {/* Calendly Loader */}
         <Script
