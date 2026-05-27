@@ -154,6 +154,11 @@ export default function Footer() {
             © {currentYear} {COMPANY.name}. Formerly known as {COMPANY.formerName}. All rights
             reserved.
           </p>
+          <p className="text-xs text-muted/50 mt-2 hover:text-muted/70 transition-colors">
+            <Link href="https://stackmode.net" target="_blank" rel="noopener noreferrer">
+              created by Stackmodechris - Stackmode Network
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
